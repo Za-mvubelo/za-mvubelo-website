@@ -67,3 +67,76 @@
 .booking-form .form-details{grid-column:1/-1}
 .booking-form label:nth-child(4){grid-column:auto}
 @media(max-width:760px){.contact-email{font-size:17px}.contact-choice-grid{gap:12px}}
+
+/* Homepage previews: original user photos, unaltered files, CSS-only editorial overlay.
+   No generated imagery, no blurred filters, no compressed sprite. */
+.disciplines>a:not(.other-work-shortcut){
+  min-height:355px;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#121511;
+  padding:clamp(18px,2.15vw,29px);
+}
+.disciplines>a:not(.other-work-shortcut) .discipline-photo{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 50%;
+  max-width:none;
+  z-index:0;
+  filter:none;
+  opacity:.92;
+  transform:scale(1);
+  transition:transform .55s cubic-bezier(.2,.7,.3,1),opacity .45s ease;
+}
+.disciplines>a:not(.other-work-shortcut)::before{
+  content:"";
+  pointer-events:none;
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(180deg,rgba(5,8,7,.58) 0%,rgba(5,8,7,.07) 30%,rgba(5,8,7,.27) 59%,rgba(5,8,7,.92) 100%);
+}
+.disciplines>a:not(.other-work-shortcut)>small,
+.disciplines>a:not(.other-work-shortcut)>strong,
+.disciplines>a:not(.other-work-shortcut)>span{
+  position:relative;
+  z-index:2;
+  text-shadow:0 2px 14px #000b;
+}
+.disciplines>a:not(.other-work-shortcut)>strong{
+  font-size:clamp(28px,2.5vw,38px);
+  line-height:1.1;
+  max-width:100%;
+  overflow-wrap:normal;
+}
+.disciplines>a:not(.other-work-shortcut)>small,
+.disciplines>a:not(.other-work-shortcut)>span{font-weight:600;}
+.disciplines>a:not(.other-work-shortcut):hover .discipline-photo,
+.disciplines>a:not(.other-work-shortcut):focus-visible .discipline-photo{
+  transform:scale(1.06);
+  opacity:1;
+}
+.disciplines .discipline-theatre .discipline-photo{object-position:49% 50%;}
+/* The studio snapshot contains black screenshot padding; zoom within the card
+   purely in CSS, preserving the original file on disk and without image processing. */
+.disciplines .discipline-voice .discipline-photo{transform:scale(1.4);object-position:50% 50%;}
+.disciplines .discipline-voice:hover .discipline-photo,
+.disciplines .discipline-voice:focus-visible .discipline-photo{transform:scale(1.46);}
+.disciplines .discipline-improv .discipline-photo{object-position:50% 40%;}
+@media(max-width:850px){
+ .disciplines>a:not(.other-work-shortcut){min-height:310px;}
+}
+@media(max-width:520px){
+ .disciplines>a:not(.other-work-shortcut){min-height:275px;padding:21px;}
+ .disciplines>a:not(.other-work-shortcut)>strong{font-size:clamp(30px,8vw,38px);}
+}
+@media(prefers-reduced-motion:reduce){
+ .disciplines>a:not(.other-work-shortcut) .discipline-photo{transition:none!important;}
+ .disciplines>a:not(.other-work-shortcut):hover .discipline-photo{transform:scale(1);}
+ .disciplines .discipline-voice:hover .discipline-photo{transform:scale(1.4);}
+}
