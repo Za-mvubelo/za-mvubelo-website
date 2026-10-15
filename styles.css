@@ -43,3 +43,11 @@
 .other-work-tags span{border:1px solid var(--border);padding:10px 12px;font-size:9px;letter-spacing:.1em;color:var(--gold);}
 @media(max-width:760px){.other-work-grid{grid-template-columns:1fr}.other-work-card-head{margin-bottom:25px}.other-work-card h3{font-size:clamp(40px,8vw,62px)}}
 @media(prefers-reduced-motion:reduce){.other-work-card{transition:none;}}
+
+/* Quick-access strip for the Other Work section. */
+.disciplines .other-work-shortcut{grid-column:1/-1;min-height:130px;display:grid;grid-template-columns:minmax(145px,.6fr) minmax(210px,1fr) minmax(200px,1.3fr);align-items:center;gap:20px;padding:24px 30px;background:linear-gradient(100deg,#2a2c22,#141915 78%);border-color:#c7a9788c}
+.disciplines .other-work-shortcut strong{font:clamp(31px,4vw,49px)/1 var(--serif);white-space:nowrap;font-weight:400}
+.disciplines .other-work-shortcut strong em{color:var(--gold)}
+.disciplines .other-work-shortcut span{text-align:right;font-size:10px;line-height:1.7}
+@media(max-width:850px){.disciplines .other-work-shortcut{grid-template-columns:1fr 1fr;min-height:130px}.disciplines .other-work-shortcut span{grid-column:1/-1;text-align:left}}
+@media(max-width:520px){.disciplines .other-work-shortcut{grid-template-columns:1fr;gap:10px;padding:23px;min-height:150px}.disciplines .other-work-shortcut span{grid-column:1}}
