@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "updated": "2026-10-15",
+  "profile": {
+    "name": "ZA Mvubelo",
+    "tagline": "Actor · Voice Artist · Stage",
+    "email": "",
+    "phone": "+27 65 950 4912",
+    "agencyEmail": "info@contractors.org.za",
+    "agencyPhone": "+27 11 726 6076",
+    "youtube": "https://www.youtube.com/@ItsZaMvubelo",
+    "instagram": ""
+  },
+  "sectionCopy": {
+    "film": "Film · Television · Commercial",
+    "improv": "Improvisation · live ensemble · comedy duo",
+    "voice": "Voice · character · commercial reads",
+    "monologue": "Self-tapes · monologues",
+    "channel": "Official YouTube uploads"
+  },
+  "videoCategories": [
+    {
+      "id": "film",
+      "label": "Film & Television"
+    },
+    {
+      "id": "improv",
+      "label": "Improv & Comedy"
+    },
+    {
+      "id": "voice",
+      "label": "Voice & Character"
+    },
+    {
+      "id": "monologue",
+      "label": "Monologues"
+    },
+    {
+      "id": "channel",
+      "label": "YouTube Library"
+    }
+  ],
+  "videos": [
+    {
+      "id": "voice-animation",
+      "title": "English Animation — Younger Male",
+      "subtitle": "Contractors Artists · Voice character demo",
+      "category": "voice",
+      "type": "file",
+      "url": "/reels/english-younger-male.mp4",
+      "thumbnail": "/portrait.jpg",
+      "visible": true
+    },
+    {
+      "id": "youtube-1",
+      "title": "From the official YouTube channel · 01",
+      "subtitle": "Credit and production title not yet verified",
+      "category": "channel",
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=PLAhxx-T2LM",
+      "thumbnail": "",
+      "visible": true
+    },
+    {
+      "id": "youtube-2",
+      "title": "From the official YouTube channel · 02",
+      "subtitle": "Credit and production title not yet verified",
+      "category": "channel",
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=F0SP9F4U0i4",
+      "thumbnail": "",
+      "visible": true
+    },
+    {
+      "id": "youtube-3",
+      "title": "From the official YouTube channel · 03",
+      "subtitle": "Credit and production title not yet verified",
+      "category": "channel",
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=HPRVFOJ2K7M",
+      "thumbnail": "",
+      "visible": true
+    }
+  ],
+  "featuredProjects": [
+    {
+      "id": "soccer-season",
+      "title": "Soccer Season",
+      "type": "Film",
+      "year": "2023",
+      "role": "Muzi · supporting",
+      "videoId": "",
+      "image": "",
+      "note": "Contractors Artists CV · verified credit"
+    },
+    {
+      "id": "adobe",
+      "title": "Adobe",
+      "type": "Branded / Commercial",
+      "year": "",
+      "role": "",
+      "videoId": "",
+      "image": "",
+      "note": "Project named by performer; details and film link pending verification"
+    },
+    {
+      "id": "weight-of",
+      "title": "The Weight Of",
+      "type": "Upcoming film",
+      "year": "",
+      "role": "Samuel",
+      "videoId": "",
+      "image": "/upcoming/samuel-bench.png",
+      "note": "Upcoming · behind-the-scenes gallery live"
+    },
+    {
+      "id": "artisan",
+      "title": "Artisan of Drama",
+      "type": "Voice / Improv",
+      "year": "",
+      "role": "",
+      "videoId": "",
+      "image": "",
+      "note": "Awaiting exact recording URL"
+    },
+    {
+      "id": "salesman",
+      "title": "Death of a Salesman",
+      "type": "Monologue",
+      "year": "",
+      "role": "",
+      "videoId": "",
+      "image": "",
+      "note": "Self-tape unlisted until authorised"
+    }
+  ]
+}
