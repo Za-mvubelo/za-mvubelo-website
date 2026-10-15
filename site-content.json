@@ -14,22 +14,22 @@
   "sectionCopy": {
     "film": "Film · Television · Commercial",
     "improv": "Improvisation · live ensemble · comedy duo",
-    "voice": "Voice · character · commercial reads",
+    "voice": "Orlando Pirates first; then agency demos, Artisan of Drama and animation.",
     "monologue": "Self-tapes · monologues",
     "channel": "Official YouTube uploads"
   },
   "videoCategories": [
     {
       "id": "film",
-      "label": "Film & Television"
-    },
-    {
-      "id": "improv",
-      "label": "Improv & Comedy"
+      "label": "Film & TV"
     },
     {
       "id": "voice",
-      "label": "Voice & Character"
+      "label": "Voice"
+    },
+    {
+      "id": "improv",
+      "label": "Improv"
     },
     {
       "id": "monologue",
@@ -37,7 +37,7 @@
     },
     {
       "id": "channel",
-      "label": "YouTube Library"
+      "label": "Channel"
     }
   ],
   "videos": [
@@ -49,7 +49,7 @@
       "type": "file",
       "url": "/reels/english-younger-male.mp4",
       "thumbnail": "/portrait.jpg",
-      "visible": true
+      "visible": false
     },
     {
       "id": "youtube-1",
@@ -84,14 +84,24 @@
   ],
   "featuredProjects": [
     {
+      "id": "orlando-pirates",
+      "title": "Orlando Pirates production",
+      "type": "Voice-over",
+      "year": "2022–2025",
+      "role": "Voice artist",
+      "videoId": "",
+      "image": "",
+      "note": "Verified voice credit on Contractors Artists casting CV"
+    },
+    {
       "id": "soccer-season",
-      "title": "Soccer Season",
+      "title": "Soccer Season: Playmaker",
       "type": "Film",
-      "year": "2023",
+      "year": "2025",
       "role": "Muzi · supporting",
       "videoId": "",
       "image": "",
-      "note": "Contractors Artists CV · verified credit"
+      "note": "Contractors CV (2023 credit), IMDb released-film cast listing (2025). Role: Muzi."
     },
     {
       "id": "adobe",
@@ -101,7 +111,7 @@
       "role": "",
       "videoId": "",
       "image": "",
-      "note": "Project named by performer; details and film link pending verification"
+      "note": "Commercial / branded-work credit supplied by performer. Exact YouTube clip to be resolved."
     },
     {
       "id": "weight-of",
