@@ -43,12 +43,12 @@
   "videos": [
     {
       "id": "voice-animation",
-      "title": "English Animation — Younger Male",
-      "subtitle": "Contractors Artists · Voice character demo",
+      "title": "English Younger Male · Animated voice character",
+      "subtitle": "Original animation video, preview generated from the video itself",
       "category": "voice",
       "type": "file",
       "url": "/reels/english-younger-male.mp4",
-      "thumbnail": "/portrait.jpg",
+      "thumbnail": "",
       "visible": false
     },
     {
