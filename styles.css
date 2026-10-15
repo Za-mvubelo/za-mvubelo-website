@@ -51,3 +51,19 @@
 .disciplines .other-work-shortcut span{text-align:right;font-size:10px;line-height:1.7}
 @media(max-width:850px){.disciplines .other-work-shortcut{grid-template-columns:1fr 1fr;min-height:130px}.disciplines .other-work-shortcut span{grid-column:1/-1;text-align:left}}
 @media(max-width:520px){.disciplines .other-work-shortcut{grid-template-columns:1fr;gap:10px;padding:23px;min-height:150px}.disciplines .other-work-shortcut span{grid-column:1}}
+
+/* Casting contact: clear distinction between direct and agency enquiries. */
+.contact-intro{align-self:start}.contact-choice-grid{display:grid;grid-template-columns:1fr;gap:15px}
+.contact-choice{padding:clamp(23px,3vw,38px);border:1px solid var(--border);background:linear-gradient(125deg,#1d241e,#111412);display:flex;align-items:flex-start;flex-direction:column}
+.contact-direct{border-color:var(--gold);background:linear-gradient(115deg,#34302355,#151a16 78%)}
+.contact-choice h3{font:clamp(34px,4vw,49px)/1.05 var(--serif);font-weight:400;margin:9px 0 17px}
+.contact-choice .bodycopy{font-size:13px;max-width:450px}
+.contact-email{font-size:clamp(15px,2.1vw,22px);color:var(--gold);font-weight:600;overflow-wrap:anywhere;word-break:break-word;line-height:1.5;margin:8px 0;border-bottom:1px solid var(--gold);padding-bottom:5px}
+.contact-email span{display:inline-block;margin-left:3px}
+.contact-secondary{color:var(--paper);margin:10px 0;font-size:14px}
+.contact-agency-profile{font-size:10px;letter-spacing:.12em;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:6px;margin-top:13px}
+.contact-socials{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px}
+.contact-socials a{font-size:10px;letter-spacing:.12em;color:var(--gold);border-bottom:1px solid var(--border);padding-bottom:9px}
+.booking-form .form-details{grid-column:1/-1}
+.booking-form label:nth-child(4){grid-column:auto}
+@media(max-width:760px){.contact-email{font-size:17px}.contact-choice-grid{gap:12px}}
