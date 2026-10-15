@@ -25,3 +25,21 @@
 .voice-opening video[poster]{object-fit:contain}
 @media(max-width:860px){.voice-opening{grid-template-columns:1fr;gap:24px}.voice-opening video{min-height:240px}}
 @media(max-width:530px){.voice-opening{padding:20px}.voice-opening h3{font-size:48px}.voice-opening video{min-height:190px}.voice-opening:before{font-size:8px}}
+
+/* Other Work: separate professional theatre and commercial experience from acting credits. */
+.other-work{background:#111512;}
+.other-work .sectionhead{align-items:end;}
+.other-work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+.other-work-card{min-width:0;display:flex;flex-direction:column;padding:clamp(28px,4vw,52px);background:linear-gradient(140deg,#272920 0%,#101311 75%);border:1px solid var(--border);transition:border-color .25s,transform .25s;}
+.other-work-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+.other-work-card-head{display:flex;align-items:center;justify-content:space-between;gap:15px;color:var(--gold);margin-bottom:45px;}
+.other-work-index{font-size:10px;letter-spacing:.19em;font-weight:600;}
+.other-work-symbol{font:31px var(--serif);line-height:1;}
+.other-work-card h3{font:clamp(42px,5vw,67px)/.98 var(--serif);letter-spacing:-.025em;font-weight:400;margin:0 0 25px;}
+.other-work-company{font-size:13px;font-weight:600;color:var(--cream);margin-bottom:19px;}
+.other-work-company span{font-weight:400;color:var(--muted);}
+.other-work-card .bodycopy{max-width:530px;}
+.other-work-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:24px;}
+.other-work-tags span{border:1px solid var(--border);padding:10px 12px;font-size:9px;letter-spacing:.1em;color:var(--gold);}
+@media(max-width:760px){.other-work-grid{grid-template-columns:1fr}.other-work-card-head{margin-bottom:25px}.other-work-card h3{font-size:clamp(40px,8vw,62px)}}
+@media(prefers-reduced-motion:reduce){.other-work-card{transition:none;}}
