@@ -32,7 +32,14 @@ mount('soccer-season','#soccer-player','SOCCER SEASON / MUZI');mount('adobe','#a
 const voiceArea=$('#voice-video-grid');if(voiceArea){const featuredIds=new Set([projects.find(p=>p.id==='orlando-pirates')?.videoId,projects.find(p=>p.id==='artisan')?.videoId]);const voiceClips=available.filter(v=>v.category==='voice'&&!featuredIds.has(v.id));for(const item of voiceClips){const playable=card(item,cats);if(playable)voiceArea.append(playable)}if(!voiceArea.children.length)voiceArea.parentElement.style.display='none'}
 const improv=available.filter(v=>v.category==='improv');const destination=$('.improv .note');if(improv.length&&destination){const wrap=make('div','improv-video-grid');for(const video of improv){const c=card(video,cats);if(c)wrap.append(c)}destination.after(wrap)}
 const info=$('#youtube-data-status');if(info)info.textContent=channel.length?'Showing '+channel.length+' verified channel uploads.':'Video names are being loaded from the official YouTube channel.';
-const email=String(d.profile?.email||'').trim();if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){const contact=$('.contact-list');if(contact&&!contact.querySelector('a[href^="mailto:'+email+'"]')){const a=make('a');a.href='mailto:'+email;a.append(make('small','','PERSONAL EMAIL'),make('strong','',email),make('span','','↗'));contact.prepend(a)}}
-const insta=$('.contact-list a[href*="instagram.com"]');if(insta){const url=String(d.profile?.instagram||'');if(/^https:\/\/(?:www\.)?instagram\.com\/[\w.]+\/?$/.test(url)){insta.href=url}else insta.remove()}
+const direct=String(d.profile?.email||'').trim(),agency=String(d.profile?.agencyEmail||'').trim();
+function syncEmail(id,value,label){const a=document.getElementById(id);if(a&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)){a.href='mailto:'+value+'?subject='+encodeURIComponent(label+' for ZA Mvubelo');a.replaceChildren(document.createTextNode(value+' '),make('span','','↗'))}}
+syncEmail('direct-email',direct,'Direct enquiry');
+syncEmail('agency-email',agency,'General enquiry');
+function syncPhone(id,value){const a=document.getElementById(id);if(a&&value){a.href='tel:'+value.replace(/[^\d+]/g,'');a.textContent=value}}
+syncPhone('direct-phone',String(d.profile?.phone||'').trim());
+syncPhone('agency-phone',String(d.profile?.agencyPhone||'').trim());
+const insta=$('.contact-socials a[href*="instagram.com"]');
+if(insta){const url=String(d.profile?.instagram||'');if(/^https:\/\/(?:www\.)?instagram\.com\/[\w.]+\/?$/.test(url))insta.href=url}
 }
 load().catch(e=>{const t=$('#youtube-data-status');if(t)t.textContent='See the full YouTube playlist below.';console.warn('Video catalogue unavailable',e)})})();
