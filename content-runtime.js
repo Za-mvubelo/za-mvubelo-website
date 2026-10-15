@@ -29,5 +29,35 @@ const phone=data.profile?.phone;if(phone){const target=$('.contact-list a[href^=
 const personal=data.profile?.email?.trim();if(personal && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(personal)){const contact=$('.contact-list');if(contact){const link=E('a');link.href='mailto:'+personal;const lbl=E('small','', 'PERSONAL EMAIL');const strong=E('strong','',personal);const arrow=E('span','','↗');link.append(lbl,strong,arrow);contact.insertBefore(link,contact.firstChild)}}}
 const instagram=data.profile?.instagram?.trim();const existing=$('.contact-list a[href*="instagram.com"]');if(existing){if(instagram&&/^https:\/\/(www\.)?instagram\.com\/[A-Za-z0-9_.]+\/?$/.test(instagram)){existing.href=instagram;existing.querySelector('strong').textContent='@'+instagram.replace(/\/$/,'').split('/').pop()}else existing.remove()}
 }
-fetch('/site-content.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('media catalogue unavailable');return r.json()}).then(init).catch(err=>{console.warn('Static gallery remains available:',err.message)});
+function loadPublicCatalogue(data,yt){
+try{
+if(!yt||typeof yt!=='object')return data;
+const uploadIds=yt.playlists?.system_uploads_playlist?.video_ids||[];
+const records=[];
+const seen=new Set();
+function scan(x,depth=0){
+ if(depth>6||!x||typeof x!=='object'||seen.has(x))return;seen.add(x);
+ if(Array.isArray(x)){for(const y of x)scan(y,depth+1);return}
+ const vid=x.video_id||x.videoId||x.youtube_id||x.id;
+ if(typeof vid==='string'&&/^[\w-]{11}$/.test(vid)&&(typeof x.title==='string'||typeof x.name==='string'))records.push({id:vid,title:x.title||x.name});
+ for(const [key,val] of Object.entries(x))if(val&&typeof val==='object')scan(val,depth+1)
+}
+scan(yt);
+const ids=[...new Set([...uploadIds.filter(x=>typeof x==='string'),...records.map(r=>r.id)])].filter(id=>/^[\w-]{11}$/.test(id));
+const known=new Set(data.videos.filter(x=>x.type==='youtube').map(x=>videoId(x.url)));
+for(let i=0;i<ids.length;i++){
+ const id=ids[i];if(known.has(id))continue;
+ const meta=records.find(r=>r.id===id),title=(meta?.title||'').trim();
+ const low=title.toLowerCase(),category=/improv|duo|comedy/.test(low)?'improv':/artisan|voice|orlando|animation/.test(low)?'voice':/salesman|monologue|dramatic/.test(low)?'monologue':/soccer|muzi|film|adobe/.test(low)?'film':'channel';
+ data.videos.push({id:'channel-'+id,title:title||'Official YouTube upload · '+String(i+1).padStart(2,'0'),subtitle:'From the official @ItsZaMvubelo YouTube channel',category,type:'youtube',url:'https://www.youtube.com/watch?v='+id,thumbnail:'',visible:true});
+ if(/artisan of drama/.test(low)){let p=data.featuredProjects.find(x=>x.id==='artisan');if(p)p.videoId='channel-'+id}
+}
+const n=document.getElementById('youtube-data-status');if(n)n.textContent=ids.length?'All '+ids.length+' videos in the official channel collection are available below.':'The official channel playlist is available below.';
+return data
+}catch(err){console.warn('YouTube metadata: displaying known uploads.',err.message);return data}
+}
+Promise.all([
+fetch('/site-content.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('media catalogue unavailable');return r.json()}),
+fetch('/youtube-source.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null)
+]).then(([data,yt])=>init(loadPublicCatalogue(data,yt))).catch(err=>{console.warn('Static gallery remains available:',err.message)});
 })();
